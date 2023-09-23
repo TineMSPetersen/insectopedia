@@ -38,8 +38,7 @@
     }
     
     // Gets the string from the user input
-    const searchQuery = document.querySelector("#search-query").value;
-    console.log(searchQuery);
+    const searchQuery = document.querySelector("#search-query").value.toLowerCase();
 
     // Fetches the bug API
     fetch("bugs.json")
@@ -61,7 +60,7 @@
 
     function MatchQueryToResult(query, bugApiData) {
       // Puts Common Name, Genus, Species, Family and Order into one string for easy filtering
-      const bugQuery = `${bugApiData.CommonName} ${bugApiData.Genus} ${bugApiData.Species} ${bugApiData.Family} ${bugApiData.Order}`;
+      const bugQuery = `${bugApiData.CommonName} ${bugApiData.Genus} ${bugApiData.Species} ${bugApiData.Family} ${bugApiData.Order}`.toLowerCase();
       
       // If bugQuery contains the query, it will show result
       if (bugQuery.includes(query)) {
