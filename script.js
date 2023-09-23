@@ -1,5 +1,5 @@
 // Creates and appends the results (bugApiData) to the parent element
-  function CreateSearchResult(bugApiData, thumbnail, parentElement) {
+function CreateSearchResult(bugApiData, thumbnail, parentElement) {
     const resultBox = document.createElement("div");
     resultBox.classList.add("result-box");
       
@@ -47,7 +47,7 @@
     console.log(searchQuery);
 
     // Fetches the bug API
-    fetch("https://bugs.verfasor.com/api")
+    fetch("/bugs.json")
     .then(function (response) {
       if (!response.ok) {
       throw new Error("Failed to fetch the Insect API");
@@ -76,13 +76,10 @@
         
     // If bugQuery contains the query (exact without any words between), OR query matches two or more words from the split Common Name, it will show result
     if (bugQuery.includes(query) || matchingCount >= 2) {
+      
       const url = `./${bugApiData.Genus}_${bugApiData.Species}.json`.toLowerCase();
 
-      const url2 = `https://en.wikipedia.org/w/api.php?action=query&titles=${bugApiData.Genus}_${bugApiData.Species}&format=json`
-
-      console.log(url2);
-
-      fetch(url2)
+      fetch(url)
       .then(function (response) {
         if (!response.ok) {
         throw new Error("Failed to fetch the Media API");
