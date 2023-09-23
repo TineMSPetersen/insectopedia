@@ -59,14 +59,18 @@
       console.error(error);
     });
 
+
+
     function MatchQueryToResult(query, bugApiData) {
-      // Puts Common Name, Genus, Species, Family and Order into one string for easy filtering
-      const bugQuery = `${bugApiData.CommonName} ${bugApiData.Genus} ${bugApiData.Species} ${bugApiData.Family} ${bugApiData.Order}`.toLowerCase();
-      
-      // If bugQuery contains the query, it will show result
-      if (query.some(word => bugQuery.includes(word))) {
-        console.log("Works!");
-        const element = document.querySelector("#query-result");
-        CreateSearchResult(bugApiData, element);
-      }
+    // Puts Common Name, Genus, Species, Family and Order into one string for easy filtering
+    const splitCommonName = bugApiData.CommonName.toLowerCase().split(' ');
+    const matchingCount = query.filter(word => splitCommonName.includes(word)).length;
+    const bugQuery = `${bugApiData.CommonName} ${bugApiData.Genus} ${bugApiData.Species} ${bugApiData.Family} ${bugApiData.Order}`.toLowerCase();
+        
+    // If bugQuery contains the query, it will show result
+    if (bugQuery.includes(query) || matchingCount >= 2) {
+      console.log("Works!");
+      const element = document.querySelector("#query-result");
+      CreateSearchResult(bugApiData, element);
+    }
   }})
