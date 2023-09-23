@@ -30,7 +30,13 @@
   .addEventListener("submit", function (event) {
     // Prevents the form from submitting and reloading the page
     event.preventDefault();
-
+    
+    // Clears search result before appending new items
+    const parentElement = document.querySelector("#query-result");
+    while (parentElement.firstChild) {
+      parentElement.removeChild(parentElement.firstChild);
+    }
+    
     // Gets the string from the user input
     const searchQuery = document.querySelector("#search-query").value;
     console.log(searchQuery);
