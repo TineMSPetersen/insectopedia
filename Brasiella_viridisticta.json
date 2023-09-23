@@ -1,0 +1,50 @@
+[
+    {
+  "batchcomplete": "",
+  "query": {
+      "normalized": [
+          {
+              "from": "Brasiella_viridisticta",
+              "to": "Brasiella viridisticta"
+          }
+      ],
+      "pages": {
+          "57355439": {
+              "pageid": 57355439,
+              "ns": 0,
+              "title": "Brasiella viridisticta",
+              "thumbnail": {
+                  "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Brasiella_viridisticta_-_inat_218330939.jpg/300px-Brasiella_viridisticta_-_inat_218330939.jpg",
+                  "width": 300,
+                  "height": 200
+              },
+              "pageimage": "Brasiella_viridisticta_-_inat_218330939.jpg"
+          }
+      }
+  }
+},
+{
+    "batchcomplete": "",
+    "query": {
+        "normalized": [
+            {
+                "from": "Brasiella_viridisticta",
+                "to": "Brasiella viridisticta"
+            }
+        ],
+        "pages": {
+            "57355439": {
+                "pageid": 344,
+                "ns": 0,
+                "title": "Brasiella viridisticta",
+                "thumbnail": {
+                    "source": "Yikes",
+                    "width": 300,
+                    "height": 200
+                },
+                "pageimage": "Brasiella_viridisticta_-_inat_218330939.jpg"
+            }
+        }
+    }
+  }
+]
