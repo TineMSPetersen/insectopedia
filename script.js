@@ -38,7 +38,8 @@
     }
     
     // Gets the string from the user input
-    const searchQuery = document.querySelector("#search-query").value.toLowerCase();
+    const searchQuery = document.querySelector("#search-query").value.toLowerCase().split(' ');
+    console.log(searchQuery);
 
     // Fetches the bug API
     fetch("bugs.json")
@@ -63,7 +64,7 @@
       const bugQuery = `${bugApiData.CommonName} ${bugApiData.Genus} ${bugApiData.Species} ${bugApiData.Family} ${bugApiData.Order}`.toLowerCase();
       
       // If bugQuery contains the query, it will show result
-      if (bugQuery.includes(query)) {
+      if (query.some(word => bugQuery.includes(word))) {
         console.log("Works!");
         const element = document.querySelector("#query-result");
         CreateSearchResult(bugApiData, element);
