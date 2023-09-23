@@ -30,7 +30,7 @@
   .addEventListener("submit", function (event) {
     // Prevents the form from submitting and reloading the page
     event.preventDefault();
-    
+
     // Gets the string from the user input
     const searchQuery = document.querySelector("#search-query").value;
     console.log(searchQuery);
@@ -45,8 +45,6 @@
       return response.json();
     })
     .then(function (bugs) {
-    
-    let loadedResults = 0;
     for (const bug of bugs) {
       MatchQueryToResult(searchQuery, bug)
     }
@@ -56,9 +54,9 @@
     });
 
     function MatchQueryToResult(query, bugApiData) {
-      if (query == "Brown-hooded Cockroach" && bugApiData.CommonName == "Brown-hooded Cockroach") {
+      if (bugApiData.CommonName.includes(query)) {
+        console.log("Works!");
         const element = document.querySelector("#query-result");
         CreateSearchResult(bugApiData, element);
       }
-    }
-  })
+  }})
