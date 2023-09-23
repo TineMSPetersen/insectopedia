@@ -9,7 +9,7 @@
 
     // Create the Scientific Name Heading
     const scientificName = document.createElement("h3");
-    scientificName.textContent = `${bugApiData.Genus} ${bugApiData.Species}`
+    scientificName.textContent = `${bugApiData.Genus} ${bugApiData.Species}`;
 
     // Create the link
     const bugGuideURL = document.createElement("a");
@@ -60,7 +60,11 @@
     });
 
     function MatchQueryToResult(query, bugApiData) {
-      if (bugApiData.CommonName.includes(query)) {
+      // Puts Common Name, Genus, Species, Family and Order into one string for easy filtering
+      const bugQuery = `${bugApiData.CommonName} ${bugApiData.Genus} ${bugApiData.Species} ${bugApiData.Family} ${bugApiData.Order}`;
+      
+      // If bugQuery contains the query, it will show result
+      if (bugQuery.includes(query)) {
         console.log("Works!");
         const element = document.querySelector("#query-result");
         CreateSearchResult(bugApiData, element);
